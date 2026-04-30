@@ -22,7 +22,6 @@ public class DeviceController {
 
     @GetMapping
     public List<Device> getAll(){// gett all devices
-
         return service.getAll();
     }
 }
