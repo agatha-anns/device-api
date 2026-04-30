@@ -19,7 +19,7 @@ public class Device {
     private String brand;
     private String state;
 
-    @Column(updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false)//creation time is auto-set
     private LocalDateTime creationTime;
 
     @PrePersist
