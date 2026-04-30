@@ -1,12 +1,11 @@
 package com.device.device_api.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -19,4 +18,12 @@ public class Device {
     private String name;
     private String brand;
     private String state;
+
+    @Column(updatable = false, nullable = false)
+    private LocalDateTime creationTime;
+
+    @PrePersist
+    void setCreationTime(){
+        this.creationTime = LocalDateTime.now();
+    }
 }
